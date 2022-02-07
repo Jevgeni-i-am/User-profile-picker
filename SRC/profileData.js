@@ -1,27 +1,6 @@
 export const PD = [
       {
             id: 1,
-            name: "Mark Doe",
-            position: "CEO",
-            image: "https://cdn.pixabay.com/photo/2016/01/04/21/57/woman-1121654_960_720.png",
-            age: 18,
-            gender: "male",
-            homeCity: "Tokio",
-            phoneNumber: "+2345789563"
-      },
-
-      {
-            id: 2,
-            name: "Clark Man",
-            position: "Creative designer",
-            image: "https://cdn.pixabay.com/photo/2016/04/26/07/57/woman-1353825_960_720.png",
-            age: 23,
-            gender: "female",
-            homeCity: "New-York",
-            phoneNumber: "+234574545"
-      },
-      {
-            id: 3,
             name: "Jaden Boor",
             position: "Front-end dev",
             image: "https://media.istockphoto.com/vectors/fi/v%C3%A4synyt-nainen-istuu-ja-halaa-polviaan-purkautunut-akku-ajatuksissa-v%C3%A4synyt-nainen-on-id1285425311?k=20&m=1285425311&s=612x612&w=0&h=DvtxOOnE8elWEkcspo8P4gdkcXjPFLuZlCzd1ut37pE=",
@@ -30,6 +9,28 @@ export const PD = [
             homeCity: "Moscow",
             phoneNumber: "+12121212"
       },
+      {
+            id: 2,
+            name: "Mark Doe",
+            position: "CEO",
+            image: "https://cdn.pixabay.com/photo/2016/04/26/07/20/woman-1353803_960_720.png",
+            age: 18,
+            gender: "male",
+            homeCity: "Tokio",
+            phoneNumber: "+2345789563"
+      },
+
+      {
+            id: 3,
+            name: "Clark Man",
+            position: "Creative designer",
+            image: "https://cdn.pixabay.com/photo/2016/04/26/07/57/woman-1353825_960_720.png",
+            age: 23,
+            gender: "female",
+            homeCity: "New-York",
+            phoneNumber: "+234574545"
+      },
+
       {
             id: 4,
             name: "Srick Tree",
@@ -185,10 +186,11 @@ export const PD = [
             id: 19,
             name: "Smart baby",
             position: "Analyst",
-            image: "https://cdn.pixabay.com/photo/2016/04/26/07/20/woman-1353803_960_720.png",
+            image: "https://cdn.pixabay.com/photo/2016/01/04/21/57/woman-1121654_960_720.png",
             age: 22,
             gender: "female",
             homeCity: "Brussele",
             phoneNumber: "+875421"
+
       },
 ]

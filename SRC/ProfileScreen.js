@@ -1,34 +1,39 @@
 import { React } from "react";
-import { View, Text, Button, TouchableOpacity, Image, StyleSheet, ScrollView } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 
 
-export const ProfileScreen = ({ params, itemData, userId, route, navigation }) => {
-      const { item } = route.params
-      const { name } = route.params;
-      const { position } = route.params;
-      const { image } = route.params;
-      console.log({ userId, name, position, image });
-      console.log({ item, itemData });
+export const ProfileScreen = ({ route }) => {
+      const { name, userId, position, image, age, gender } = route.params
+
       return (
             <ScrollView>
                   <View style={styles.container}>
                         <View style={[styles.card, styles.profileCard]}>
-                              <Image style={styles.avatar} source={{ uri: "https://bootdey.com/img/Content/avatar/avatar6.png" }} />
-                              <Text style={styles.name}>John Doe / {name}</Text>
+                              <Image style={styles.avatar} source={{ uri: image }} />
+                              <Text style={styles.name}>{name}</Text>
                         </View>
 
                         <View style={styles.card}>
-                              <Text style={styles.cardTittle}>Title</Text>
-                              <Text> - Lorem ipsum dolor sit amet</Text>
-                              <Text> - Lorem ipsum dolor sit amet</Text>
-                              <Text> - Lorem ipsum dolor sit amet</Text>
+                              <Text style={styles.cardTittle}>Skills</Text>
+                              <Text> POSITION: {position}</Text>
+
                         </View>
 
                         <View style={styles.card}>
-                              <Text style={styles.cardTittle}>Title</Text>
-                              <Text> - Lorem ipsum dolor sit amet</Text>
-                              <Text> - Lorem ipsum dolor sit amet</Text>
-                              <Text> - Lorem ipsum dolor sit amet</Text>
+                              <Text style={styles.cardTittle}>Contacts</Text>
+                              <Text> USER ID: {userId}</Text>
+                              <Text> WhatsApp</Text>
+                              <Text> Facebook</Text>
+
+                        </View>
+
+                        <View style={styles.card}>
+                              <Text style={styles.cardTittle}>Personal data</Text>
+                              <Text> Age:  {age}</Text>
+                              <Text> Gender:  {gender}</Text>
+                              <Text> Card number: </Text>
+                              <Text> Courses done: </Text>
+                              <Text> Available: </Text>
                         </View>
 
                         <View style={styles.photosCard}>
@@ -60,18 +65,21 @@ const styles = StyleSheet.create({
             marginBottom: 5,
       },
       avatar: {
-            width: 150,
-            height: 150,
+            width: 180,
+            height: 180,
+            borderRadius: 90,
+            alignSelf: 'center',
+            borderColor: "#DCDCDC",
+            borderWidth: 3,
       },
       card: {
             backgroundColor: "#FFFFFF",
             borderRadius: 10,
             padding: 10,
-            height: 100,
             marginTop: 10,
       },
       profileCard: {
-            height: 200,
+            height: 250,
             alignItems: 'center',
             marginTop: 20,
       },

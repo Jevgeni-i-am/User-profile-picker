@@ -1,31 +1,39 @@
 import { React } from "react";
-import { View, Text, Button, StyleSheet, FlatList, Alert, TouchableOpacity, Image } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { PD } from "./profileData";
 
-export const AllUsers = (route) => {
+export const AllUsers = () => {
       const navigation = useNavigation()
-
-      const moveToProfile = ({ userId, name, position, image }) => {
-            return (navigation.navigate('Profile', { userId, name, position, image }))
+      const moveToProfile = (data) => {
+            return (navigation.navigate('Profile', {
+                  userId: data.userId,
+                  name: data.name,
+                  position: data.position,
+                  image: data.image,
+                  age: data.age,
+                  gender: data.gender
+            }))
       }
 
-      const ProfileList = ({ userId, name, position, image }) => {
+
+
+      const ProfileList = (data) => {
             return (
-                  <TouchableOpacity style={styles.card} onPress={() => { clickEventListener(name, userId, position, image) }}>
+                  <TouchableOpacity style={styles.card}
+                        onPress={() => { moveToProfile(data) }}>
                         <View style={styles.cardHeader}>
                               <Image style={styles.icon}
                                     source={{ uri: "https://img.icons8.com/flat_round/64/000000/hearts.png" }} />
                         </View>
-                        <Image style={styles.userImage} source={{ uri: image }} />
+                        <Image style={styles.userImage} source={{ uri: data.image }} />
                         <View style={styles.cardFooter}>
                               <View style={{ alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={styles.name}>{name}</Text>
-                                    <Text style={styles.position}>{position}</Text>
-
+                                    <Text style={styles.name}>{data.name}, {data.age}</Text>
+                                    <Text style={styles.position}>{data.position}</Text>
                                     <TouchableOpacity
                                           style={styles.followButton}
-                                          onPress={() => { moveToProfile(userId, name, position, image) }}>
+                                          onPress={() => { moveToProfile(data) }}>
                                           <Text style={styles.followButtonText}>Profile</Text>
                                     </TouchableOpacity>
                               </View>
@@ -34,16 +42,8 @@ export const AllUsers = (route) => {
             )
       }
 
-      const clickEventListener = (name, userId, position, image) => {
-            /* Alert.alert(name + ' ' + userId) */
-            console.log(name, userId, position, image);
-      }
-
       return (
-
-
             <View style={styles.container}>
-
                   <FlatList
                         style={styles.list}
                         contentContainerStyle={styles.listContainer}
@@ -54,24 +54,18 @@ export const AllUsers = (route) => {
                         renderItem={(itemData) => {
                               return (
                                     < ProfileList
-                                          route={route}
-                                          navigation={navigation}
                                           userId={itemData.item.id}
                                           image={itemData.item.image}
                                           name={itemData.item.name}
                                           position={itemData.item.position}
+                                          age={itemData.item.age}
+                                          gender={itemData.item.gender}
                                     />)
                         }}
-
                   />
-
             </View>
-
-
       )
 }
-
-
 
 
 const styles = StyleSheet.create({

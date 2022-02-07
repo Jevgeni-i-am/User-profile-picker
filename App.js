@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { AllUsers } from "./SRC/AllUsers";
+import { ProfileScreen } from "./SRC/ProfileScreen";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+const AllUsersStack = ({ route, navigation }) => {
+      return (
+            <AllUsers navigation={navigation} route={route} />
+      )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const ProfileScreenStack = ({ route, navigation }) => {
+      return (
+            <ProfileScreen navigation={navigation} route={route} />
+      );
+}
+
+const Stack = createNativeStackNavigator();
+
+function App(props) {
+      return (
+            <NavigationContainer>
+                  <Stack.Navigator initialRouteName="AllUsers">
+                        <Stack.Screen name="AllUsers" component={AllUsersStack} />
+                        <Stack.Screen name="Profile" component={ProfileScreenStack} />
+                  </Stack.Navigator>
+            </NavigationContainer>
+      );
+}
+
+export default App;
