@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AllUsers } from "./SRC/AllUsers";
+
 import { ProfileScreen } from "./SRC/ProfileScreen";
+import AllUsers from './SRC/AllUsers';
 
 
 const AllUsersStack = ({ route, navigation }) => {
